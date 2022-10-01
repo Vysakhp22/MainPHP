@@ -10,20 +10,17 @@ $data = get_object_vars($data);
 }
 if(isset($data['email']))
 {
-    $sname=$data['shopname'];
-    $place=$data['place'];
+    $name=$data['name'];
     $cno=$data['contact'];
-    $password=$data['cpassword'];
+    $gender=$data['gender'];
     $email=$data['email'];
     $addres=$data['address'];
-    $dist=$data['district'];
-    $owner=$data['owner'];
-    $proof=$data['proof'];
-    $logo=$data['logo'];
-    $query="INSERT INTO tbl_shop(shop_name, shop_email, shop_contactno, shop_place, shop_address, shop_logo, shop_licenceproof, shop_ownername, shop_password, shop_status) VALUES ('$sname','$email','$cno','$place','$addres','$logo','$proof','$owner','$password','0')";
+    $qualify=$data['qualify'];
+    $img=$data['image'];
+    $query="INSERT INTO tbl_jailsuperintendent(centraljail_id, jailsuperintendent_name, jailsuperintendent_gender, jailsuperintendent_email, jailsuperintendent_contactno, jailsuperintendent_qualification, jailsuperintendent_address, jailsuperintendent_photo) VALUES ('1','$name','$gender','$email','$cno','$qualify','$addres','$img')";
 if(mysqli_query($con,$query))
 {
-    $sel="SELECT * FROM tbl_shop WHERE shop_email='$email'";
+    $sel="SELECT * FROM tbl_jailsuperintendent WHERE jailsuperintendent_email='$email'";
     $row=mysqli_query($con,$sel);
 
     if($datas=mysqli_fetch_assoc($row))
@@ -39,4 +36,4 @@ else{
 }
 
 }
-?>
+?>  
