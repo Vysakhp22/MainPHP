@@ -17,7 +17,8 @@ if(isset($data['email']))
     $addres=$data['address'];
     $qualify=$data['qualify'];
     $img=$data['image'];
-    $query="INSERT INTO tbl_jailsuperintendent(centraljail_id, jailsuperintendent_name, jailsuperintendent_gender, jailsuperintendent_email, jailsuperintendent_contactno, jailsuperintendent_qualification, jailsuperintendent_address, jailsuperintendent_photo) VALUES ('1','$name','$gender','$email','$cno','$qualify','$addres','$img')";
+    $id=$data['Id'];
+    $query="INSERT INTO tbl_jailsuperintendent(centraljail_id, jailsuperintendent_name, jailsuperintendent_gender, jailsuperintendent_email, jailsuperintendent_contactno, jailsuperintendent_qualification, jailsuperintendent_address, jailsuperintendent_photo) VALUES ('$id','$name','$gender','$email','$cno','$qualify','$addres','$img')";
 if(mysqli_query($con,$query))
 {
     $sel="SELECT * FROM tbl_jailsuperintendent WHERE jailsuperintendent_email='$email'";

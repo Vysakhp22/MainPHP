@@ -20,7 +20,8 @@ if(isset($data['email']))
     $pid=$data['pid'];
     $pimage=$data['image'];
     $duration=$data['duration'];
-    $query="INSERT INTO tbl_prisoner(centraljail_id, prisoner_name, prisoner_gender, prisoner_address, prisoner_contactno, prisoner_emailid, prisoner_photo, prisoner_prisonercode, prisoner_crimedetails, prisoner_duration, prisoner_joindate, prisoner_status) VALUES ('1','$name','$gender','$address','$cno','$email','$pimage','$pid','$details','$duration','$date','0')";
+    $id=$data['Id'];
+    $query="INSERT INTO tbl_prisoner(centraljail_id, prisoner_name, prisoner_gender, prisoner_address, prisoner_contactno, prisoner_emailid, prisoner_photo, prisoner_prisonercode, prisoner_crimedetails, prisoner_duration, prisoner_joindate, prisoner_status) VALUES ('$id','$name','$gender','$address','$cno','$email','$pimage','$pid','$details','$duration','$date','0')";
 if(mysqli_query($con,$query))
 {
     $sel="SELECT * FROM tbl_prisoner WHERE prisoner_emailid = '$email   '";
