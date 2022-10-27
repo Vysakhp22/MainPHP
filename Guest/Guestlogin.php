@@ -18,6 +18,7 @@ $company=mysqli_query( $con,"SELECT * FROM tbl_company WHERE company_email='$mai
 $jail=mysqli_query( $con,"SELECT * FROM tbl_centraljail WHERE centraljail_email='$mail'AND centraljail_password='$passwd'");
 $shop=mysqli_query( $con,"SELECT * FROM tbl_shop WHERE shop_email='$mail' and shop_password='$passwd'");
 $user=mysqli_query( $con,"SELECT * FROM tbl_user WHERE user_email='$mail' AND user_password='$passwd'");
+$jobS=mysqli_query( $con,"SELECT * FROM tbl_jobseeker WHERE jobseeker_email='$mail' AND jobseeker_password='$passwd'");
 if($row = mysqli_fetch_assoc($query))
 {
 array_push($Datalist,$row);
@@ -56,6 +57,14 @@ array_push($Datalist,$row);
     if(count($Datalist) > 0)
     {
         echo json_encode(array("alert"=>"User","data"=>$Datalist));
+    }
+}
+else if($row = mysqli_fetch_assoc($jobS))
+{
+array_push($Datalist,$row);
+    if(count($Datalist) > 0)
+    {
+        echo json_encode(array("alert"=>"Jobseeker","data"=>$Datalist));
     }
 }
 else
