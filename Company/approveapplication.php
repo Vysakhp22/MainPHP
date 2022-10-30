@@ -11,8 +11,11 @@ $data = get_object_vars($data);
 if(isset($data['id']))
 {
 $Id=$data['id'];
+$vid=$data['vacid'];
 $query=mysqli_query( $con,"UPDATE tbl_jobapply SET jobapplier_status='1' WHERE jobapply_id='$Id'");
 $res=mysqli_query($con,$query);
+$vac=mysqli_query( $con,"UPDATE tbl_jobvaccancy SET jobvac_nov=jobvac_nov - 1 WHERE jobvac_id=$vid");
+$res1=mysqli_query($con,$vac);
 echo json_encode(array("alert"=>"Success"));
 }
 ?>
