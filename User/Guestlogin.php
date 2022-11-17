@@ -14,9 +14,9 @@ $mail=$data['email'];
 $passwd=$data['password'];
 $Datalist=array();
 $query=mysqli_query( $con,"SELECT * FROM tbl_admin WHERE admin_email='$mail' AND admin_password='$passwd'");
-$company=mysqli_query( $con,"SELECT * FROM tbl_company WHERE company_email='$mail' AND company_password='$passwd' AND company_status=1");
+$company=mysqli_query( $con,"SELECT * FROM tbl_company WHERE company_email='$mail' AND company_password='$passwd'");
 $jail=mysqli_query( $con,"SELECT * FROM tbl_centraljail WHERE centraljail_email='$mail'AND centraljail_password='$passwd'");
-$shop=mysqli_query( $con,"SELECT * FROM tbl_shop WHERE shop_email='$mail' and shop_password='$passwd' AND shop_status=1");
+$shop=mysqli_query( $con,"SELECT * FROM tbl_shop WHERE shop_email='$mail' and shop_password='$passwd'");
 $user=mysqli_query( $con,"SELECT * FROM tbl_user WHERE user_email='$mail' AND user_password='$passwd'");
 $jobS=mysqli_query( $con,"SELECT * FROM tbl_jobseeker WHERE jobseeker_email='$mail' AND jobseeker_password='$passwd'");
 if($row = mysqli_fetch_assoc($query))
